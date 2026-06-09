@@ -10,14 +10,15 @@
     <header class="topbar">
       <a class="brand" href="{{ url_for('main.index') }}">SIGMA</a>
       <nav class="topbar-nav">
-        {% if current_user %}
-          <span class="user-pill">{{ current_user['username'] }}</span>
+        <a href="{{ url_for('main.cadastros') }}">Cadastros</a>
+        {% if current_leader %}
+          <span class="user-pill">{{ current_leader['leader_name'] }} - {{ current_leader['sector'] }}</span>
           <form action="{{ url_for('auth.logout') }}" method="post">
             <button class="ghost-button" type="submit">Sair</button>
           </form>
         {% else %}
           <a href="{{ url_for('auth.login') }}">Entrar</a>
-          <a class="button-link" href="{{ url_for('auth.register') }}">Criar conta</a>
+          <a class="button-link" href="{{ url_for('auth.register') }}">Cadastrar lider</a>
         {% endif %}
       </nav>
     </header>

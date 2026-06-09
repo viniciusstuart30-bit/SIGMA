@@ -5,7 +5,7 @@ from flask import Flask, g, session
 
 from sigma_app.auth import auth
 from sigma_app.routes import main
-from sigma_app.storage import get_user_by_id, initialize_database
+from sigma_app.storage import get_leader_by_id, initialize_database
 
 
 def create_app(test_config=None):
@@ -27,12 +27,13 @@ def create_app(test_config=None):
     @app.before_request
     def load_current_user():
         g.database_path = app.config["DATABASE_PATH"]
-        user_id = session.get("user_id")
-        g.user = get_user_by_id(app.config["DATABASE_PATH"], user_id) if user_id else None
+        leader_id = session.get("leader_id")
+        g.leader = get_leader_by_id(app.config["DATABASE_PATH"], leader_id) if leader_id else None
 
     @app.context_processor
     def inject_current_user():
-        return {"current_user": g.get("user")}
+        leader = g.get("leader")
+        return {"current_leader": leader, "current_user": leader}
 
     app.register_blueprint(main)
     app.register_blueprint(auth)

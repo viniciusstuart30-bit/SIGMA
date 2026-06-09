@@ -157,3 +157,63 @@ a {
   color: #cbd5e1;
   margin-bottom: 0;
 }
+
+.registry-shell {
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.registry-header {
+  margin-bottom: 1.5rem;
+}
+
+.registry-header h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.registry-header p {
+  margin: 0;
+  color: #cbd5e1;
+}
+
+.registry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.registry-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  min-height: 180px;
+}
+
+.registry-card h2 {
+  margin: 0 0 0.5rem;
+}
+
+.registry-card p {
+  margin: 0;
+  color: #cbd5e1;
+}
+
+.registry-card-active {
+  border-color: rgba(96, 165, 250, 0.45);
+}
+
+.registry-card-placeholder {
+  opacity: 0.92;
+}
+
+.is-disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}

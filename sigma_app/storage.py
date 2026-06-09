@@ -15,50 +15,52 @@ def initialize_database(database_path):
     with get_connection(database_path) as connection:
         connection.execute(
             """
-            CREATE TABLE IF NOT EXISTS users (
+            CREATE TABLE IF NOT EXISTS leaders (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                username TEXT NOT NULL UNIQUE,
+                leader_name TEXT NOT NULL,
+                sector TEXT NOT NULL,
                 password_hash TEXT NOT NULL,
-                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                UNIQUE(leader_name)
             )
             """
         )
         connection.commit()
 
 
-def get_user_by_id(database_path, user_id):
-    if user_id is None:
+def get_leader_by_id(database_path, leader_id):
+    if leader_id is None:
         return None
     with get_connection(database_path) as connection:
         return connection.execute(
-            "SELECT id, username, created_at FROM users WHERE id = ?",
-            (user_id,),
+            "SELECT id, leader_name, sector, created_at FROM leaders WHERE id = ?",
+            (leader_id,),
         ).fetchone()
 
 
-def get_user_by_username(database_path, username):
+def get_leader_by_name(database_path, leader_name):
     with get_connection(database_path) as connection:
         return connection.execute(
-            "SELECT id, username, password_hash, created_at FROM users WHERE username = ?",
-            (username,),
+            "SELECT id, leader_name, sector, password_hash, created_at FROM leaders WHERE leader_name = ?",
+            (leader_name,),
         ).fetchone()
 
 
-def create_user(database_path, username, password):
+def create_leader(database_path, leader_name, sector, password):
     password_hash = generate_password_hash(password)
     with get_connection(database_path) as connection:
         cursor = connection.execute(
-            "INSERT INTO users (username, password_hash) VALUES (?, ?)",
-            (username, password_hash),
+            "INSERT INTO leaders (leader_name, sector, password_hash) VALUES (?, ?, ?)",
+            (leader_name, sector, password_hash),
         )
         connection.commit()
-        return get_user_by_id(database_path, cursor.lastrowid)
+        return get_leader_by_id(database_path, cursor.lastrowid)
 
 
-def verify_user(database_path, username, password):
-    user = get_user_by_username(database_path, username)
-    if user is None:
+def verify_leader(database_path, leader_name, password):
+    leader = get_leader_by_name(database_path, leader_name)
+    if leader is None:
         return None
-    if not check_password_hash(user["password_hash"], password):
+    if not check_password_hash(leader["password_hash"], password):
         return None
-    return user
+    return leader
