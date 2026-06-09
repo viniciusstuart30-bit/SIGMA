@@ -53,6 +53,29 @@ Para expor a aplicacao na rede local, defina `HOST=0.0.0.0` no `.env` e execute 
 
 Se houver firewall no Windows ou na rede, a porta `5000` precisa estar liberada para acesso entre os computadores.
 
+## Fluxo de trabalho
+
+- `main`: versão estável, pronta para uso.
+- `develop`: branch de integração para o trabalho do dia a dia.
+- `feature/nome-da-tarefa`: branch temporária para cada funcionalidade.
+
+Fluxo sugerido:
+
+1. Criar uma branch de feature a partir de `develop`.
+2. Trabalhar e testar a funcionalidade.
+3. Fazer commit da alteração.
+4. Enviar a branch para o GitHub.
+5. Abrir pull request para `develop`.
+6. Quando a versão estiver pronta, mesclar `develop` em `main`.
+
+Comandos úteis:
+
+```powershell
+git checkout develop
+git pull origin develop
+git checkout -b feature/nova-funcionalidade
+```
+
 ## Estrutura
 
 - `app.py`: ponto de entrada da aplicacao
