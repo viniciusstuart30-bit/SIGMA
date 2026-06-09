@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Entrar | SIGMA{% endblock %}
+
+{% block content %}
+  <main class="auth-shell">
+    <section class="auth-card">
+      <h1>Entrar</h1>
+      <form method="post" class="auth-form">
+        <label>
+          Usuario
+          <input type="text" name="username" autocomplete="username" required>
+        </label>
+        <label>
+          Senha
+          <input type="password" name="password" autocomplete="current-password" required>
+        </label>
+        <button class="primary-button" type="submit">Entrar</button>
+      </form>
+      <p class="auth-help">Ainda nao tem conta? <a href="{{ url_for('auth.register') }}">Crie uma agora</a>.</p>
+    </section>
+  </main>
+{% endblock %}
