@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Criar conta | SIGMA{% endblock %}
+
+{% block content %}
+  <main class="auth-shell">
+    <section class="auth-card">
+      <h1>Cadastrar lider</h1>
+      <form method="post" class="auth-form">
+        <label>
+          Nome do lider
+          <input type="text" name="leader_name" autocomplete="name" required>
+        </label>
+        <label>
+          Setor
+          <input type="text" name="sector" autocomplete="organization" required>
+        </label>
+        <label>
+          Senha
+          <input type="password" name="password" autocomplete="new-password" required>
+        </label>
+        <label>
+          Confirmar senha
+          <input type="password" name="confirm_password" autocomplete="new-password" required>
+        </label>
+        <button class="primary-button" type="submit">Cadastrar lider</button>
+      </form>
+      <p class="auth-help">Ja existe o cadastro? <a href="{{ url_for('auth.login') }}">Entre aqui</a>.</p>
+    </section>
+  </main>
+{% endblock %}

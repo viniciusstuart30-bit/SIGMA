@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Entrar | SIGMA{% endblock %}
+
+{% block content %}
+  <main class="auth-shell">
+    <section class="auth-card">
+      <h1>Entrar</h1>
+      <form method="post" class="auth-form">
+        <label>
+          Nome do lider
+          <input type="text" name="leader_name" autocomplete="name" required>
+        </label>
+        <label>
+          Senha
+          <input type="password" name="password" autocomplete="current-password" required>
+        </label>
+        <button class="primary-button" type="submit">Entrar</button>
+      </form>
+      <p class="auth-help">Ainda nao tem cadastro? <a href="{{ url_for('auth.register') }}">Cadastre o lider</a>.</p>
+    </section>
+  </main>
+{% endblock %}

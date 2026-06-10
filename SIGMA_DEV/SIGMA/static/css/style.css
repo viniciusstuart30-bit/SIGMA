@@ -1,0 +1,219 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111827;
+  color: #f9fafb;
+}
+
+a {
+  color: inherit;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(17, 24, 39, 0.96);
+}
+
+.brand {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.topbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.topbar-nav form {
+  margin: 0;
+}
+
+.button-link,
+.ghost-link,
+.primary-button,
+.ghost-button {
+  border-radius: 999px;
+  padding: 0.75rem 1.1rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.button-link,
+.primary-button {
+  background: #60a5fa;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.ghost-link,
+.ghost-button {
+  background: transparent;
+  color: #f9fafb;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.user-pill {
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.flash-stack {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem 0;
+}
+
+.flash {
+  padding: 0.9rem 1rem;
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.flash-success {
+  border-left: 4px solid #34d399;
+}
+
+.flash-error {
+  border-left: 4px solid #f87171;
+}
+
+.hero {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin: 0 0 1rem;
+}
+
+.hero p {
+  margin: 0;
+  color: #cbd5e1;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.auth-shell {
+  min-height: calc(100vh - 72px);
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+}
+
+.auth-card {
+  width: min(100%, 420px);
+  padding: 2rem;
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.28);
+}
+
+.auth-card h1 {
+  margin-top: 0;
+}
+
+.auth-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.auth-form label {
+  display: grid;
+  gap: 0.45rem;
+  color: #e5e7eb;
+}
+
+.auth-form input {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.8rem;
+  background: rgba(15, 23, 42, 0.65);
+  color: #f9fafb;
+  padding: 0.9rem 1rem;
+}
+
+.auth-help {
+  color: #cbd5e1;
+  margin-bottom: 0;
+}
+
+.registry-shell {
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.registry-header {
+  margin-bottom: 1.5rem;
+}
+
+.registry-header h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.registry-header p {
+  margin: 0;
+  color: #cbd5e1;
+}
+
+.registry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.registry-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  min-height: 180px;
+}
+
+.registry-card h2 {
+  margin: 0 0 0.5rem;
+}
+
+.registry-card p {
+  margin: 0;
+  color: #cbd5e1;
+}
+
+.registry-card-active {
+  border-color: rgba(96, 165, 250, 0.45);
+}
+
+.registry-card-placeholder {
+  opacity: 0.92;
+}
+
+.is-disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
